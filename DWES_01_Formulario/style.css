@@ -25,11 +25,13 @@ input[type=submit]:hover {
 }
 
 div {
-  display: flex;
-  justify-content: center;
-  width: 40px;
-  top: 10%;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 500px;
+  position: absolute;
+  left: 20%;
 }

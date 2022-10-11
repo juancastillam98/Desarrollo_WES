@@ -1,19 +1,12 @@
 <?php
-$edad = 0;
-$nombre = "";
+$num1 = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST"  && isset($_POST["btnEnviar"])) {
-    $edad = (int)$_POST["edad"];
-    $nombre = ucwords(strtolower($_POST["nombre"]));
-    $nombre = ucfirst($nombre);
+    $num1 = (int)$_POST["numero"];
 }
-
-echo "Te llamas " . $nombre . " y tienes " . $edad . " años";
-if ($edad < 18 && $edad >= 0) {
-    echo "<p> $nombre es menor  de edad";
-} elseif ($edad >= 18 && $edad <= 65) {
-    echo "<p> $nombre es adulto";
-} elseif ($edad >= 65 && $edad <= 130) {
-    echo "<p> $nombre está jubilado";
-} else {
-    echo "<p> Edad incorrecta </p>";
+echo "<ul>";
+for ($i = 1; $i <= $num1; $i++) {
+   echo " <li>$i</li>";
 }
+echo "</ul>";
+echo " <br/><a href='ejercicio2.php'>Volver al formulario</a>";
+?>

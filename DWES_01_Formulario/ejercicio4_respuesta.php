@@ -10,3 +10,6 @@ if ($numero < 0 || $numero >= 7) {
 } else {
     echo "<h$numero> $frase </h$numero>";
 }
+echo " <br/><a href='ejercicio4.php'>Volver al formulario</a>";
+
+?>
