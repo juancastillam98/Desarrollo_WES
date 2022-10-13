@@ -102,17 +102,26 @@ function comprobarDni($dni)
     return  $dniValido;
 }
 
-function TablasMultiplicar1Al10()
+function tablasMultiplicar1Al10()
 {
-    echo "<table>";
+
+
     for ($i = 1; $i <= 10; $i++) {
-        echo "<tr>";
+        echo "<table>";
+        echo "<thead>" .
+                "<tr>" .
+                    "<th>Tabla del $i</th>" .
+                "</tr>" .
+            "</thead>";
         for ($j = 1; $j <= 10; $j++) {
-            echo"<td>";
-            echo "$i x $j = ".($i*$j);
-            echo "</td>";
+            echo "<tbody>" .
+                    "<tr>" .
+                        "<td>" .
+                            "$i x $j = " . ($i * $j) .
+                        "</td>" .
+                    "</tr>" .
+                "</tbody>";
         }
-        echo "</tr>";
+        echo "</table>";
     }
-    echo "</table>";
 }

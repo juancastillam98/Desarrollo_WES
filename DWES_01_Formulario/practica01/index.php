@@ -74,7 +74,8 @@
     </div>
     <h2>Ejercicio 3</h2>
     <?php
-
+    echo "<br>";
+    echo tablasMultiplicar1Al10();
     ?>
 </body>
 
