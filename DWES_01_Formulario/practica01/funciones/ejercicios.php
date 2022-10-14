@@ -102,24 +102,57 @@ function comprobarDni($dni)
     return  $dniValido;
 }
 
+//Función que 
+function cambiarColorDeFondo($opcion)
+{
+    //echo "Has pulsado ".$opcion. " es un ".gettype($opcion);
+    $colorFondoFuncion = ""; //variable color de fundo, que solamente existe aquí dentro de la función
+    if ($opcion == 1) {
+        $colorFondoFuncion = "red";
+    } elseif ($opcion == 2) {
+        $colorFondoFuncion = "yellow";
+    } elseif ($opcion == 3) {
+        $colorFondoFuncion = "green";
+    }
+    return $colorFondoFuncion;
+}
+
+
+function colorAleatorio()
+{
+    $c = rand(1, 4);
+
+    $color = match ($c) {
+        1 => "blue",
+        2 => "green",
+        3 => "yellow",
+        4 => "purple",
+    };
+    return $color;
+}
+
 function tablasMultiplicar1Al10()
 {
 
 
     for ($i = 1; $i <= 10; $i++) {
-        echo "<table>";
+        $color = colorAleatorio();
+        echo "<br/>";
+        echo "<table class='$color'>";
         echo "<thead>" .
-                "<tr>" .
-                    "<th>Tabla del $i</th>" .
-                "</tr>" .
+            "<tr>" .
+            "<th class='f-1r'>Tabla del $i</th>" .
+            "</tr>" .
             "</thead>";
         for ($j = 1; $j <= 10; $j++) {
             echo "<tbody>" .
-                    "<tr>" .
-                        "<td>" .
-                            "$i x $j = " . ($i * $j) .
-                        "</td>" .
-                    "</tr>" .
+                "<tr>" .
+                "<td>" .
+                "<div>" .
+                "$i x $j = " . ($i * $j) .
+                "<div>" .
+                "</td>" .
+                "</tr>" .
                 "</tbody>";
         }
         echo "</table>";
