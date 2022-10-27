@@ -9,10 +9,10 @@ $num1 = 0;
 $num2 = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["btnEnviar"])) {
     if ($_POST["f"] == "ej1") {
-        $num1 = $_POST["num1"];
-        $num1 = $_POST["num2"];
+        $inicio = $_POST["num1"];
+        $cantidad = $_POST["num2"];
     }
-    $primos = sacarPrimos($num1, $num2);
+    $primos = sacarPrimos($inicio, $cantidad);
 }
 
 

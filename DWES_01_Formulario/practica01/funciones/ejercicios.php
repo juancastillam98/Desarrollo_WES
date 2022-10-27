@@ -1,5 +1,5 @@
 <?php
-function sacarPrimos($cantidad, $incio)
+function sacarPrimos($incio, $cantidad)
 {
     $i = $incio;
     $totalPrimos = 0;
@@ -7,7 +7,7 @@ function sacarPrimos($cantidad, $incio)
 
     do {
         $primo = true;
-        $i++;
+
         for ($j = 2; $j < $i; $j++) {
             if ($i % $j == 0) {
                 $primo = false;
@@ -19,6 +19,7 @@ function sacarPrimos($cantidad, $incio)
             //echo "$i <br/>";
             $totalPrimos++;
         }
+        $i++;
     } while ($totalPrimos != $cantidad);
     return $res;
 }
@@ -101,23 +102,6 @@ function comprobarDni($dni)
     }
     return  $dniValido;
 }
-
-//Función que 
-function cambiarColorDeFondo($opcion)
-{
-    //echo "Has pulsado ".$opcion. " es un ".gettype($opcion);
-    $colorFondoFuncion = ""; //variable color de fundo, que solamente existe aquí dentro de la función
-    if ($opcion == 1) {
-        $colorFondoFuncion = "red";
-    } elseif ($opcion == 2) {
-        $colorFondoFuncion = "yellow";
-    } elseif ($opcion == 3) {
-        $colorFondoFuncion = "green";
-    }
-    return $colorFondoFuncion;
-}
-
-
 function colorAleatorio()
 {
     $c = rand(1, 4);
