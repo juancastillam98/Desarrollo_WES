@@ -21,19 +21,24 @@
         $nombre = $_POST["nombre"];
         $talla = $_POST["talla"];
         $precio = $_POST["precio"];
-        if (isset($_POST["categoria"])) {
-            $categoria = $_POST["categoria"];
-        } else {
-            $categoria = "";
-        }
+        $categoria = $_POST["categoria"];
+        //mover imagen
+        $file_name = $_FILES["imagen"]["name"];
+        $file_temp_name = $_FILES["imagen"]["tmp_name"];
+        $path = "../../resources/images/prendas/" . $file_name;
 
         //INSERTAR prenda en la bd
         if (!empty($nombre) && !empty($talla) && !empty($precio)) { //si la categoría fuera NOT NULL, habría que meterla aquí en el if
-            if (!empty($categoria)) {
-                $sql = "INSERT INTO prendas (nombre, talla, precio, categoria) values ('$nombre', '$talla', '$precio' , '$categoria' )";
+
+            if (move_uploaded_file($file_temp_name, $path)) {
+                echo "<p>fichero movido con éxito</p>";
             } else {
-                $sql = "INSERT INTO prendas (nombre, talla, precio) values ('$nombre', '$talla', '$precio' )";
+                echo "<p> No se ha podido mover el fichero</p>";
             }
+            $imagen = "/resources/images/prendas/" . $file_name;
+
+            $categoria = !empty($categoria) ? "'$categoria'" : "NULL";
+            $sql = "INSERT INTO prendas (nombre, talla, precio, categoria, imagen) values ('$nombre', '$talla', '$precio' , $categoria, '$imagen')";
 
             if ($conexion->query($sql) == "TRUE") {
     ?>
@@ -49,9 +54,15 @@
                     <strong>¡Error!</strong> No se ha podido insertar la prenda.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-    <?php
+        <?php
             }
         }
+        ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>¡Error!</strong> No se ha podido insertar la prenda.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
     }
     ?>
 
@@ -62,7 +73,7 @@
         <h1>Base de datos</h1>
         <div class="row">
             <div class="col-6">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="form-group my-2">
                         <label class="form-label" for="nombre">Nombre</label>
                         <input class="form-control" type="text" name="nombre" id="nombre">
@@ -92,8 +103,13 @@
                             <option value="ACCESORIOS">ACCESORIOS</option>
                         </select>
                     </div>
+                    <!--imagen-->
+                    <p>Imagen: <input type="file" name="imagen"></p>
+                    <span class="error">
+                        <?php if (isset($err_img)) echo $err_img ?>
+                    </span>
                     <button class="btn btn-primary" type="submit" name="btnCrear">Crear</button>
-                    <a class="btn btn-secondary my-5" href="index.php">Nueva Prenda</a>
+                    <a class="btn btn-secondary my-5" href="index.php">Volver</a>
 
                 </form>
             </div>

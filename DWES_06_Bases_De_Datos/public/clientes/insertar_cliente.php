@@ -21,19 +21,26 @@
         $usuario = $_POST["usuario"];
         $nombre = $_POST["nombre"];
         $apellido1 = $_POST["apellido1"];
-        if (isset($_POST["apellido2"])) {
+        /*if (isset($_POST["apellido2"])) {
             $apellido2 = $_POST["apellido2"];
         } else {
             $apellido2 = "";
-        }
+        }*/
+        $apellido2 = $_POST["apellido2"];
         $fechaNacimiento = $_POST["fechaNacimiento"];
 
         if (!empty($usuario) && !empty($nombre) && !empty($apellido1) && !empty($fechaNacimiento)) {
+            /*
+            forma 1
             if (!empty($apellido2)) {
                 $sql = "INSERT INTO clientes (usuario, nombre, apellido1, apellido2, fechaNacimiento) values ('$usuario', '$nombre', '$apellido1', '$apellido2', '$fechaNacimiento' )";
             } else {
                 $sql = "INSERT INTO clientes (usuario, nombre, apellido1, fechaNacimiento) values ('$usuario', '$nombre', '$apellido1', '$fechaNacimiento' )";
             }
+            */
+            //forma 2, correcta
+            $apellido2 = !empty($apellido2) ? "'$apellido2'" : "NULL";
+            $sql = "INSERT INTO clientes (usuario, nombre, apellido1, apellido2, fechaNacimiento) values ('$usuario', '$nombre', '$apellido1', $apellido2, '$fechaNacimiento' )";
 
 
             if ($conexion->query($sql) == "TRUE") {
