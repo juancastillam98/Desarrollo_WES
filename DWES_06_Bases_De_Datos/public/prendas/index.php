@@ -21,6 +21,7 @@
                     <thead class="table table-dark">
                         <tr>
                             <th>Nombre</th>
+                            <th>Imagen</th>
                             <th>Talla</th>
                             <th>Precio</th>
                             <th>Categoria</th>
@@ -30,29 +31,36 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <!--borrar prendas-->
                         <?php
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $id = $_POST["id"];
+                            $imagen = $_POST["imagen"];
+                            echo "contenido imagen -" . $imagen;
+
+                            //borramos la imagen de la carpeta. --Si la imagen es la default, no se debe borrar
+                            unlink("../../" . $imagen);
                             $sql = "DELETE FROM prendas WHERE id='$id'";
 
                             if ($conexion->query($sql) == "TRUE") {
                         ?>
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <strong>Éxito!</strong> Prenda insertada correctamente.
+                                    <strong>Éxito!</strong> Prenda eliminada correctamente.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             <?php
                             } else {
                             ?>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <strong>¡Error!</strong> No se ha podido insertar la prenda.
+                                    <strong>¡Error!</strong> No se ha podido eliminar la prenda.
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                         <?php
                             }
                         }
                         ?>
+
                         <!--Seleccionar todas las prendas-->
                         <?php
                         $sql = "SELECT * FROM prendas";
@@ -65,9 +73,13 @@
                                 $fila = $row["talla"];
                                 $precio = $row["precio"];
                                 $categoria = $row["categoria"];
+                                $imagen = $row["imagen"];
                         ?>
                                 <tr>
-                                    <td><?php echo $nombre ?></td>
+                                    <td> <?php echo $nombre ?></td>
+                                    <td>
+                                        <img width="30" height="30" src="../..<?php echo $imagen ?>" alt="imagen hombre con sombrero">
+                                    </td>
                                     <td><?php echo $fila ?></td>
                                     <td><?php echo $precio ?></td>
                                     <td><?php echo $categoria ?></td>
@@ -82,6 +94,7 @@
                                         <form action="" method="POST">
                                             <button class="btn btn-danger" type="Submit">Borrar</button>
                                             <input type="hidden" name="id" value="<?php echo  $id ?>">
+                                            <input type="hidden" name="imagen" value="<?php echo  $imagen ?>">
                                         </form>
                                     </td>
                                 </tr>

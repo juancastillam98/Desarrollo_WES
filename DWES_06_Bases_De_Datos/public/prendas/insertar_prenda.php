@@ -11,10 +11,7 @@
 </head>
 
 <body>
-    <!--
-        - Elegir la talla con un select (XS, S, M, L, XL) (añadir check en la BD)
-        - Categoría con select (Camisetas, Pantalones, Accesorios) (añadir check en la BD)
-    -->
+
     <?php
     require "../../util/database.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["btnCrear"])) {
@@ -58,10 +55,6 @@
             }
         }
         ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>¡Error!</strong> No se ha podido insertar la prenda.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
     <?php
     }
     ?>

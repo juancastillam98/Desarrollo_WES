@@ -33,13 +33,16 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/index.php">Ver Clientes</a></li>
                         <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/insertar_cliente.php">Insertar Cliente</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/compras/compras.php">Compras Cliente</a></li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/DWES_06_Bases_De_Datos/public/compras/mostrar_productos.php">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/inicio_sesion.php">Inicio Sesion</a>
+                </li>
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
         </div>
     </div>
 </nav>
