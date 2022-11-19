@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    <?php require "../../util/control_de_acceso.php" ?>
     <?php require "../header.php" ?>
 
     <?php
@@ -17,9 +17,19 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["btnComprar"])) {
         $prenda_id = $_POST["prenda"];
         $cantidad = $_POST["cantidad"];
-        $cliente_id = 10; //10 es el usuario weff
+        //$cliente_id = 10; //10 es el usuario weff
         $fecha = date('Y-m-d H:i:s'); //2022-11-15 09:25
 
+        //sacar id del cliente que inicia sesion
+        $usuario = $_SESSION["usuario"];
+        $sql = "SELECT * FROM clientes WHERE usuario= '$usuario'";
+
+        $resultado = $conexion->query($sql);
+        if ($resultado->num_rows > 0) {
+            while ($row = $resultado->fetch_assoc()) {
+                $cliente_id = $row["id"];
+            }
+        }
         //inseertar un cliente.
         // $sql = "INSERT INTO clientes_prendas (cliente_id, prenda_id, cantidad, fecha) VALUES ('$cliente_id', '$prenda_id', '$cantidad', '$fecha')";
         $sql = "INSERT INTO clientes_prendas (cliente_id, prenda_id, cantidad, fecha) VALUES ('$cliente_id', '$prenda_id', '$cantidad', '$fecha')";
@@ -32,7 +42,6 @@
             </div>
         <?php
         } else {
-            echo "error";
         ?>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>¡Error!</strong> No se ha podido insertar la prenda.

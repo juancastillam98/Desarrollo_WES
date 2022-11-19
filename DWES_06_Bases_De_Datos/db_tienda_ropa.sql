@@ -48,3 +48,9 @@ constraint chk_cantidad_valida check (cantidad >=1)
  #alter table clientes_prendas add column talla varchar(10);
 select * from clientes;
 select * from clientes where usuario = "pepe";
+
+#añadir el campo de rol
+#alter table clientes drop column rol;
+alter table clientes add column rol varchar(15);
+alter table clientes 
+	ADD CONSTRAINT chk_rol_valido CHECK (rol in ('administrador', 'usuario'));

@@ -10,8 +10,10 @@
 
 <body>
     <?php
-    require "../header.php";
+    require "../../util/control_de_acceso.php";
     require "../../util/database.php";
+    require "../header.php";
+
     ?>
 
     <div class="container my-5">
@@ -57,7 +59,7 @@
                                     <td>
                                         <?php
                                         $precioTotal = $precioUnitario * $cantidad;
-                                        echo $precioTotal
+                                        echo $precioTotal."€";
                                         ?>
                                     </td>
                                 </tr>

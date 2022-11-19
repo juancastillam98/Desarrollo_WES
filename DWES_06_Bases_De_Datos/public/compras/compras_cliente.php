@@ -10,11 +10,13 @@
 
 <body>
     <?php
-    require "../header.php";
+    require "../../util/control_de_acceso.php";
     require "../../util/database.php";
+    require "../header.php";
+
 
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        $usuario = $_GET["usuario"];
+        $usuario = $_SESSION["usuario"];
     }
     $precioTotal = 0;
     ?>

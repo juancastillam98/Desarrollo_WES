@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php require "../../util/control_de_acceso.php" ?>
     <?php require "../../util/database.php" ?>
     <div class="container">
         <?php require "../header.php" ?>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Cenec Moda</a>
+        <a class="navbar-brand" href="http://localhost/DWES_06_Bases_De_Datos/public/">Cenec Moda</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,32 +16,59 @@
                     </a>
                 </li>
                 <!--Prendas-->
+                <?php
+                if ($_SESSION["rol"] == "administrador") {
+                ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Prendas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/prendas/index.php">Ver Prendas</a></li>
+                            <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/prendas/insertar_prenda.php">Insertar Prendas</a></li>
+                        </ul>
+                    </li>
+                    <!--Clientes-->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Clientes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/index.php">Ver Clientes</a></li>
+                            <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/insertar_cliente.php">Insertar Cliente</a></li>
+                            <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/compras/compras.php">Compras Cliente</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/DWES_06_Bases_De_Datos/public/compras/comprar_productos.php">Productos</a>
+                    </li>
+                <?php
+                }
+                ?>
+
+
+
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Prendas
+                        Usuario
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/prendas/index.php">Ver Prendas</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/prendas/insertar_prenda.php">Insertar Prendas</a></li>
-                    </ul>
-                </li>
-                <!--Clientes-->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/index.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Clientes
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/index.php">Ver Clientes</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/insertar_cliente.php">Insertar Cliente</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/compras/compras.php">Compras Cliente</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/inicio_sesion.php">Iniciar Sesion</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/registrar_usuario.php">Registrarse</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/DWES_06_Bases_De_Datos/public/compras/mostrar_productos.php">Productos</a>
+                    <a class="nav-link" href="http://localhost/DWES_06_Bases_De_Datos/public/compras/compras_cliente.php">Mis Compras</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><?php echo $_SESSION["usuario"] ?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/DWES_06_Bases_De_Datos/public/clientes/inicio_sesion.php">Inicio Sesion</a>
+                    <a class="nav-link" href="http://localhost/DWES_06_Bases_De_Datos/public/desconectarse.php">Desconectarse</a>
                 </li>
+
             </ul>
         </div>
     </div>

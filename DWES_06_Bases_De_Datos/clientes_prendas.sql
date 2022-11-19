@@ -12,8 +12,8 @@ select c.usuario, p.nombre producto, cp.cantidad, p.precio precioUnitario, cp.fe
     join clientes_prendas cp on c.id = cp.cliente_id
     join prendas p on p.id=cp.prenda_id);
 
-select * from vw_clientes_prendas;
+select * from vw_clientes_prendas where usuario ="miguel";
 drop view vw_clientes_prendas;
 
 alter table clientes_prendas DROP CONSTRAINT clientes_prendas_pk;
-
+select * from clientes;

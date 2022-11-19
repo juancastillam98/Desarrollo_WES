@@ -13,12 +13,10 @@
 <body>
 
     <?php
+    require "../../util/control_de_acceso.php";
     require "../../util/database.php";
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["btnCrear"])) {
         $usuario = $_POST["usuario"];
-        $contraseña = $_POST["contrasena"];
-        $hash_contrasena = password_hash($contrasena, PASSWORD_DEFAULT);
-
         $nombre = $_POST["nombre"];
         $apellido1 = $_POST["apellido1"];
         $apellido2 = $_POST["apellido2"];
@@ -30,9 +28,8 @@
         $path = "../../resources/images/clientes/" . $file_name;
 
 
-
-        if (!empty($usuario) && !empty($nombre) && !empty($apellido1) && !empty($fechaNacimiento) && !empty($contraseña)) {
-
+        //Comprobar
+        if (!empty($usuario) && !empty($nombre) && !empty($apellido1) && !empty($fechaNacimiento)) {
             $imagen = "/resources/images/clientes/" . $file_name;
             $imagenDefault = "/resources/images/clientes/fotoUserDefault.png";
 
@@ -43,7 +40,7 @@
             $imagenUsr = !empty($file_name) ? "'$imagen'" : "'$imagenDefault'"; //em la bd, se inserta con las comillas∫
             //forma 2, correcta
             $apellido2 = !empty($apellido2) ? "'$apellido2'" : "NULL";
-            $sql = "INSERT INTO clientes (usuario, contrasena, nombre, apellido1, apellido2, fechaNacimiento, imagen) values ('$usuario', '$hash_contrasena', '$nombre', '$apellido1', $apellido2, '$fechaNacimiento' , $imagenUsr)";
+            $sql = "INSERT INTO clientes (usuario, contrasena, nombre, apellido1, apellido2, fechaNacimiento, imagen) values ('$usuario', NULL, '$nombre',  '$apellido1', $apellido2, '$fechaNacimiento' , $imagenUsr)";
 
 
             if ($conexion->query($sql) == "TRUE") {
@@ -75,11 +72,6 @@
                     <div class="form-group my-2">
                         <label class="form-label" for="usuario">usuario</label>
                         <input class="form-control" type="text" name="usuario" id="usuario">
-                    </div>
-                    <!--CONTRASEÑa-->
-                    <div class="form-group my-2">
-                        <label class="form-label" for="contraseña">Contraseña</label>
-                        <input class="form-control" type="text" name="contrasena" id="contrasena">
                     </div>
 
                     <div class="form-group my-2">

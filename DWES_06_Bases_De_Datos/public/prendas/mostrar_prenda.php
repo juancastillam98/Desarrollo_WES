@@ -12,6 +12,7 @@
     <h1>Hello, world!</h1>
 
     <?php
+    require "../../util/control_de_acceso.php";
     require "../../util/database.php";
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $id = $_GET["id"];
