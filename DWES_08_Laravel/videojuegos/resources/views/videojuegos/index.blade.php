@@ -16,7 +16,12 @@
     <div class="container">
 
         <!--hacer un echo de una variable sin tener que poner las llaves de php-->
-        <p>{{ $mensaje }}</p>
+        <ul>
+            @foreach ($videojuegos as $v)
+                <li>{{$v->titulo}} - {{$v->compania->nombre}}</li>
+            @endforeach
+        </ul>
+
         <form method="GET" action="{{route('videojuegos.search')}}">
             <div class="row justify-content-center">
                 <div class="col-3">
@@ -43,6 +48,8 @@
                         <th scope="col">Precio</th>
                         <th scope="col">Pegi</th>
                         <th scope="col">Descripcion</th>
+                        <th scope="col">Compañia</th>
+                        <th scope="col">Consolas</th>
                         <th></th>
                         <th></th>
                     </thead>
@@ -55,6 +62,13 @@
                             <td> {{ $videojuego ->precio }}</td>
                             <td> {{ $videojuego ->pegi }}</td>
                             <td> {{ $videojuego ->descripcion }}</td>
+                            <!--Llamo a la función compania de videojuego-->
+                            <td> {{ $videojuego -> compania ->nombre }}</td>
+                            <td>
+                                @foreach ($videojuego -> consolas as $consola)
+                                    {{$consola -> nombre}}
+                                @endforeach
+                            </td>
                             <td> 
                                 <!--Videojuegos.show dice que usa method get y que recibe un videojuego en concreto-->
                                 <!--videojuegos.show-->

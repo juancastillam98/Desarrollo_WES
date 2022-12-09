@@ -9,8 +9,8 @@ class Compania extends Model
 {
     use HasFactory;
 
-    public function videojuegoss()
+    public function videojuegos()
     {
-        return $this->hasMany(videojuego::class);
+        return $this->hasMany(Videojuego::class);
     }
 }

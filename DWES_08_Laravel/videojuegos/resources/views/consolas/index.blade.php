@@ -22,6 +22,7 @@
                         <th scope="col">Año Lanzamiento</th>
                         <th scope="col">Generacion</th>
                         <th scope="col">Descripcion</th>
+                        <th scope="col">Videojuegos</th>
                     </thead>
                     <tbody class="table-group-divider">
                         @php($indice =1)
@@ -32,6 +33,11 @@
                             <td> {{ $consola ->anyoSalida }}</td>
                             <td> {{ $consola ->generacion }}</td>
                             <td> {{ $consola ->descripcion }}</td>
+                            <td> 
+                                @foreach ($consola -> videojuegos as $videojuego)
+                                    {{$videojuego -> nombre}}
+                                @endforeach
+                            </td>
                             <td>
                                 <form action="{{ route('consolas.show', ['consola'=>$consola->id])}}" method="get">
                                     <button class="btn btn-primary" type="submit">Ver</button>

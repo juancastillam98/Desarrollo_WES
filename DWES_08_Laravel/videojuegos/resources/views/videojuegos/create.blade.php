@@ -36,6 +36,15 @@
                             <option value="18">18</option>
                         </select>
                     </div>
+                    <div class="form-group mb-3">
+                        <label class="form-label" for="compania_id">Compañia</label>
+                        <select class="form-select" name="compania_id" id="compania_id">
+                            @foreach ($companias as $c)
+                                <option value="{{$c ->id}}">{{$c->nombre}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group my-2">
                         <label class="form-label" for="descripcion">Descripción: </label>
                         <input class="form-control" type="text" name="descripcion" id="descripcion">

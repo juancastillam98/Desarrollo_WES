@@ -16,7 +16,25 @@
     <div class="container">
 
         <!--hacer un echo de una variable sin tener que poner las llaves de php-->
-        <p>{{ $mensaje }}</p>
+        
+        <ul>
+            @foreach ($companias as $c)
+                <li>
+                    {{$c ->nombre}}
+                </li>
+                <ul>
+                    @php
+                    //en $videojuegos voy a almacenar todos los videojuegos de la funcion companias (lo que devuelve esa función)
+                        $videojuegos=$c-> videojuegos
+                    @endphp
+                    @foreach ($videojuegos as $v)
+                        <li>{{$v->titulo}}</li>
+                    @endforeach
+                </ul>
+            @endforeach
+        </ul>
+    
+        
 
         <div class="row justify-content-center">
             <div class="col-9">
@@ -30,7 +48,9 @@
                         <th></th>
                     </thead>
                     <tbody class="table-group-divider">
-                        @php($indice =1)
+
+                        @php $indice =1; @endphp
+
                         @foreach($companias as $compania)
                         <tr>
                             <th> {{ $indice++ }}</th>
@@ -50,6 +70,18 @@
                                 </form>
                             </td>
                         </tr>
+                            @php
+                                //en $videojuegos voy a almacenar todos los videojuegos de la funcion companias (lo que devuelve esa función)
+                                $videojuegos=$compania-> videojuegos;
+                            @endphp
+                            @foreach ($videojuegos as $v)
+                                <tr class="table table-info align-self-center">
+                                    <td>{{$v -> titulo}}</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                       
                         @endforeach
                     </tbody>
                 </table>

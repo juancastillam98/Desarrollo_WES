@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Compania;
 use Illuminate\Http\Request;
 use Psy\Readline\Userland;
 use App\Models\Videojuego;
@@ -35,7 +36,13 @@ class VideojuegosController extends Controller
     public function create()
     {
         //llamada a videojuegos
-        return view("videojuegos/create");
+        $companias = Compania::all();
+        return view(
+            "videojuegos/create",
+            [
+                "companias" => $companias
+            ]
+        );
     }
 
     /**
@@ -54,6 +61,7 @@ class VideojuegosController extends Controller
         $videojuego->precio = $request->input("precio");
         $videojuego->pegi = $request->input("pegi");
         $videojuego->descripcion = $request->input("descripcion");
+        $videojuego->compania_id = $request->input("compania_id");
         $videojuego->save(); //el save es como el insert en la bd
 
         return redirect("videojuegos");
