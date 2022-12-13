@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+}
+
+#contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+#contenedor>img {
+    height: 100vh;
+}
+
+@media (orientation: landscape) {}
+
+
+/* img{
+    width: 100%;
+} */
