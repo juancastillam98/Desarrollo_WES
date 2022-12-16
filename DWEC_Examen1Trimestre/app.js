@@ -73,9 +73,15 @@ function mostrarMensaje() {
 function limpiarHTML() {
     //mientras haya elementos en el DOM, y no sea la imagen principal éste los irá limpiando
 
-    while (contenedor.firstChild && contenedor.childNodes[1].isEqualNode(imagen)) {
-        contenedor.removeChild(contenedor.firstChild)
+    if (contenedor.children[3]) {
+        contenedor.children[3].remove();
     }
+    if (contenedor.children[2]) {
+        contenedor.children[2].remove();
+    }
+
+
+
 
 }
 

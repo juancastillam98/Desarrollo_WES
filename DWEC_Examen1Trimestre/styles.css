@@ -34,6 +34,16 @@ body {
     }
 }
 
+@media (orientation: landscape) {
+    video[width="320"] {
+        width: 200;
+    }
+
+    video[height="320"] {
+        height: 200;
+    }
+}
+
 .top {
     top: 45px;
 }
