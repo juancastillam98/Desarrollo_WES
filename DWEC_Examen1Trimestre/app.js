@@ -5,6 +5,7 @@ const contenedor = document.querySelector("div")
 //eventos
 eventListeners();
 function eventListeners() {
+    //IMPORTANTE, EN ALGUNOS NAVEGADORES, PUEDE QUE NO DETECTE EL HOVER O EL CLICK.
     //evento que se activa al hacer click sobre la imagen principal
     imagen.addEventListener("click", mostrarMensaje);
     //evento que se activa al entrar en la imagen principal
