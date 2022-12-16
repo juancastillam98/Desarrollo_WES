@@ -37,3 +37,7 @@ body {
 .top {
     top: 45px;
 }
+
+video {
+    border-radius: 10px;
+}
