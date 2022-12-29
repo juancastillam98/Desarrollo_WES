@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categoria;
 use Illuminate\Http\Request;
 
-class CategoriasController extends Controller
+class UsuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +14,6 @@ class CategoriasController extends Controller
     public function index()
     {
         //
-        $categorias = Categoria::all();
-        return view(
-            'categorias/index',
-            [
-                "categorias" => $categorias
-            ]
-        );
     }
 
     /**
@@ -31,10 +23,7 @@ class CategoriasController extends Controller
      */
     public function create()
     {
-        //Las categorías, no tendrán ningún la posibilidad de productos
-        return view(
-            "categorias/create"
-        );
+        //
     }
 
     /**
@@ -45,12 +34,7 @@ class CategoriasController extends Controller
      */
     public function store(Request $request)
     {
-        $categoria = new Categoria;
-        $categoria->nombre = $request->input("nombre");
-        $categoria->descripcion = $request->input("descripcion");
-        $categoria->save(); //el save es como el insert en la bd
-
-        return redirect("categorias");
+        //
     }
 
     /**

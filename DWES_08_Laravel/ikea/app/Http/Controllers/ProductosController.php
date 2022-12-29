@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use App\Models\Producto;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,13 @@ class ProductosController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = Categoria::all();
+        return view(
+            "productos/create",
+            [
+                "categorias" => $categorias
+            ]
+        );
     }
 
     /**
@@ -39,7 +46,15 @@ class ProductosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = new Producto;
+        $producto->nombre = $request->input("nombre");
+        $producto->precio = $request->input("precio");
+        $producto->fecha_lanzamiento = $request->input("fecha_lanzamiento");
+        $producto->descripcion = $request->input("descripcion");
+        $producto->categoria_id = $request->input("categoria_id");
+        $producto->save(); //el save es como el insert en la bd
+
+        return redirect("productos");
     }
 
     /**
@@ -50,7 +65,10 @@ class ProductosController extends Controller
      */
     public function show($id)
     {
-        //
+        $producto = Producto::find($id);
+        return view("productos/show", [
+            "producto" => $producto
+        ]);
     }
 
     /**
@@ -61,7 +79,13 @@ class ProductosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $producto = Producto::find($id);
+        $categorias = Categoria::all();
+        return view("productos/edit ", [
+            "producto" => $producto,
+            "categorias" => $categorias
+
+        ]);
     }
 
     /**

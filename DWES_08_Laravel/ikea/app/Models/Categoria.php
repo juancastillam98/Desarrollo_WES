@@ -14,7 +14,7 @@ class Categoria extends Model
         return $this->hasMany(Producto::class);
         /*
         Si la categoría tiene un id,
-        y el producto un categoria_id,
+        y el producto una categoria_id,
         hasMany buscará en la tabla categorías
         todas las categorías cuyo categoria_id
         coincida con el id de la categoría

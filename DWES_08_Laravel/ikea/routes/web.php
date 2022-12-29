@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ProductosController;
+use App\Http\Controllers\UsuariosController;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,4 @@ Route::get('/', function () {
 });
 Route::resource("categorias", CategoriasController::class);
 Route::resource("productos", ProductosController::class);
+Route::resource("usuarios", UsuariosController::class);
