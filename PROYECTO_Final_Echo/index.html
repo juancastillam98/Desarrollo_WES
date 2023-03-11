@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Roboto:wght@100;300;500&display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./jquery/jquery-3.6.3.min"></script>
+    <title>ECHO</title>
+</head>
+
+<body>
+    <header>
+        <div class="navbar-bg">
+            <div class="navbar">
+                <nav class="navbar-nav">
+                    <a href="#" class="nav-link color-white">Inicio</a>
+                    <a href="#" class="nav-link color-white">Tienda</a>
+                    <a href="#" class="nav-link color-white btn-1" type="button">Nosotros</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="principal">
+        <section class="portada-info">
+            <div id="info">
+                <div class="info-text">
+                    <h1 class="h1-tamanio">Find Your Dream Developer Job Today</h1>
+                    <h2 class="h2-tamanio">Discover opportunities, connect with top companies, and launch your career as
+                        a developer</h2>
+                    <div class="btn-intro">
+                        <button type="button" class="btn-1 btn-registro color-white ">Get Started</button>
+                        <button type="button" class="btn-1 btn-login color-white">Login</button>
+                    </div>
+                </div>
+
+            </div>
+            <img src="./resources/definitiva3.png" alt="" class="main-photo">
+
+        </section>
+        <!--Modal Formulario de registro-->
+        <section class="modal ">
+            <div class="modal-container">
+                <form action="" method="post" class="form-registro" id="form-registro">
+                    <h2 class="modal-title">¡Bienvenido!</h2>
+                    <p class="form-paragraph color-white texto">¿Aún no tienes cuenta? <a href="#"
+                            class="form-link">Entra
+                            aquí</a></p>
+                    <div class="form-container">
+                        <!--Nombre-->
+                        <div class="form-group my-2">
+                            <label class="form-label color-white texto" for="nombre">Nombre</label>
+                            <input class="form-control form-input texto" type="text" name="nombre" id="nombre"
+                                placeholder="">
+                            <span class="form-line"></span>
+                        </div>
+                        <!--Apellidos-->
+                        <div class="form-group my-2">
+                            <label class="form-label color-white texto" for="apellidos">Apellidos</label>
+                            <input class="form-control form-input" type="text" name="apellidos" id="apellidos"
+                                placeholder="">
+                            <span class="form-line"></span>
+                        </div>
+                        <!--Email-->
+                        <div class="form-group my-2">
+                            <label class="form-label color-white texto" for="email">Email</label>
+                            <input class="form-control form-input" type="email" name="email" id="email" placeholder="">
+                            <span class="form-line"></span>
+                        </div>
+                        <!--Contraseña-->
+                        <div class="form-group my-2">
+                            <label class="form-label color-white texto" for="contrasena">Contrasena</label>
+                            <input class="form-control form-input" type="text" name="contrasena" id="contrasena"
+                                placeholder="">
+                            <span class="form-line"></span>
+                        </div>
+                        <!--Nombre-->
+                        <div class="form-group my-2">
+                            <label class="form-label color-white texto" for="contrasena_repetida">Repite la
+                                contraseña</label>
+                            <input class="form-control form-input" type="text" name="contrasena_repetida"
+                                id="contrasena_repetida">
+                            <span class="form-line"></span>
+                        </div>
+                    </div>
+                    <input type="submit" class="form-submit texto btn-1" value="Entrar">
+                    <p class="warnings" id="warnings">dd</p>
+                </form>
+                <a href="#" class="modal-close">Cerrar</a>
+            </div>
+        </section>
+        <!--Sección de ventajas-->
+        <section class="ventajas container">
+            <h2 class="titulo-centrado">¿Por qué ECHO?</h2>
+            <div class="cards">
+                <article class="card">
+                    <img src="./resources/desarrollador.jpg" alt="" class="card-img">
+                    <div class="card-body">
+                        <h4 class="h4-tamanio">Encuentra a los mejores desarrolladores</h4>
+                        <p>Solo te mostraremos a los desarrolladores que mejor seadapten a tus necesidades</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="./resources/empresas.jpg" alt="" class="card-img">
+                    <div class="card-body">
+                        <h4 class="h4-tamanio">Encuentra a los mejores desarrolladores</h4>
+                        <p>Solo te mostraremos a los desarrolladores que mejor seadapten a tus necesidades</p>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="./resources/precio.jpg" alt="" class="card-img">
+                    <div class="card-body">
+                        <h4 class="h4-tamanio">Encuentra a los mejores desarrolladores</h4>
+                        <p>Solo te mostraremos a los desarrolladores que mejor seadapten a tus necesidades</p>
+                    </div>
+                </article>
+            </div>
+
+
+            <!--card 1-->
+
+
+        </section>
+    </main>
+
+
+
+
+
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

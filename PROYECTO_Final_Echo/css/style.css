@@ -1,0 +1,390 @@
+body {
+    background-color: #4F3280;
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+p,
+.texto {
+
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.h1-tamanio {
+    font-size: 3.5em;
+    font-weight: 700;
+}
+
+.h2-tamanio {
+    font-weight: 700;
+}
+
+.h4-tamanio {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 20px;
+}
+
+.texto {
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.titulo-centrado {
+    text-align: center;
+}
+
+a:link,
+a:visited,
+a:active {
+
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.color-white {
+    color: whites;
+}
+
+.btn-1 {
+    text-decoration: none;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #c10bc0;
+    border-radius: 0.8em;
+
+    font-family: 'Roboto', sans-serif;
+    transition: background-color .3s;
+}
+
+.modal-close:hover {
+    color: rgb(154, 12, 12);
+}
+
+.navbar-bg {
+    background: linear-gradient(93deg, #070C3D 5%, #0A1053 19%, #101152 32%, #1D1A4F 37%, #1B1C4F 47%, #19194E 98%);
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 60px;
+}
+
+.navbar .navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 3px;
+    width: 80%;
+    margin-top: 0.7em;
+    margin-right: 23px;
+    align-items: center;
+}
+
+.navbar-link {
+    display: inline-block;
+    align-self: center;
+}
+
+.main-photo {
+    width: 100%;
+    z-index: 1;
+}
+
+
+.portada-info {
+    /*height: 59vh;*/
+    /*
+    background-image: url(../resources/definitiva3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-position: center center;
+    */
+}
+
+#info {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+}
+
+.info-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 560px;
+}
+
+/****MODAL*****/
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    /*si le pongo opacity 0, no puedo seleccionar elementos de la página.
+    Con pointer events permito seleccionar elementos*/
+    /*transition: opacity .6s .9s;*/
+    transition-property: opacity;
+    transition-duration: .6s, .9s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+}
+
+.modal--show {
+    opacity: 1;
+    pointer-events: unset;
+    transition-property: opacity;
+    transition-duration: .6s;
+    --transform: translateY(0);
+    --transition: transform .8s .8s;
+}
+
+
+.modal-container {
+    margin: auto;
+    /*centra vertical y horizontal*/
+    width: 90%;
+    max-width: 600px;
+    /*siempre que sea menor a 600px*/
+    max-height: 30px;
+    border-radius: 10px;
+    padding: 30em 2.5em;
+    background-color: #1B1C4F;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    border: 4px solid white;
+    box-shadow: 0 5px 10px;
+    transform: var(--transform);
+    transition: var(--transition);
+    align-content: center;
+}
+
+.modal-title {
+    font-size: 2.5rem;
+}
+
+.modal-paragraph {
+    margin-bottom: 10px;
+}
+
+.modal-close {
+    text-decoration: none;
+    background-color: red;
+    padding: 1em 3em;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.modal-close:hover {
+    background-color: rgb(154, 12, 12);
+    color: white;
+}
+
+/***FORMULARIO DE REGISTRO*/
+.form-registro {
+    text-align: center;
+    margin: auto;
+    width: 90%;
+    max-width: 460px;
+    padding: 2.5em 3em;
+}
+
+.form-paragraph {
+    font-weight: 300;
+}
+
+.form-link {
+    font-weight: 700;
+}
+
+.form-container {
+    margin-top: 3em;
+    display: grid;
+    gap: 2.5em;
+}
+
+.form-group {
+    position: relative;
+    padding-top: 1em;
+}
+
+.form-input {
+    width: 100%;
+    background: none;
+    color: gainsboro;
+    font-size: 1rem;
+    padding: 0.6em 0.3em;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+/*
+.form-label:focus+.form-input,
+.form-input:not(:placeholder-shown)+.form-label {
+    transform: translateY(-12px) scale(.7);
+    --transform-origin: left top;
+    color: #c10bc0;
+}*/
+
+
+
+.form-label {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform: translateY(10px);
+    transition: transform .5s .3s;
+}
+
+.subir-label {
+    transform: translateY(-12px) scale(.7);
+    padding-top: 1em;
+}
+
+.form-submit {
+    padding: 0.8em 2em;
+    margin-top: 2em;
+}
+
+.form-line {
+    position: absolute;
+}
+
+.warnings {
+    width: 480px;
+    text-align: center;
+    margin: auto;
+    color: rgb(242, 255, 0);
+    padding-top: 20px;
+}
+
+/********************************************/
+/***************VENTAJAS***************/
+/********************************************/
+@media(min-width: 768px) {
+    .cards {
+        display: flex;
+        gap: 1em;
+        /*Cuando se usa display flex, se alienean los elementos en bloques
+        (en columnas,) con gap, podemos acceder a la separación entre ellos*/
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: auto;
+}
+
+.card {
+
+    background: radial-gradient(91.9% 91.9% at 7.26% 3.67%, #8C0DAF 0.52%, #C82A9C 96.88%);
+    overflow: hidden;
+    color: white;
+    border-radius: 0.5em;
+    margin-bottom: 1em;
+}
+
+.card-img {
+    width: 100%;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-body h5 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    font-weight: 700;
+}
+
+.card-body p {
+    font-weight: 300;
+}
+
+.card-body a {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+/************************************************/
+/************RESPONSIVE*******************/
+/************************************************/
+
+/*hasta 768*/
+@media (min-width: 768px) {
+    .h1-tamanio {
+        font-size: 2em;
+    }
+
+    #info {
+        top: 90px;
+        left: 55px;
+    }
+
+    .info-text {
+        width: 300px;
+    }
+}
+
+/*hasta 1024*/
+@media (min-width: 1024px) {
+    .h1-tamanio {
+        font-size: 2.5em;
+    }
+
+    #info {
+        top: 100px;
+        left: 85px;
+    }
+
+    .info-text {
+        width: 380px;
+    }
+}
+
+/*hasta 2560*/
+@media (min-width: 2560px) {
+    .h1-tamanio {
+        font-size: 4.5em;
+    }
+
+    .h2-tamanio {
+        font-size: 2.5em;
+    }
+
+    #info {
+        top: 120px;
+        left: 85px;
+    }
+
+    .info-text {
+        width: 750px;
+    }
+}
